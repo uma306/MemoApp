@@ -10,7 +10,7 @@ import LoginScreen from './src/screens/LoginScreen';
 
 import ENV from './env.json';
 
-const config = {
+const firebaseConfig = {
   apiKey:            ENV.FIREBASE_API_KEY,
   authDomain:        ENV.FIREBASE_AUTH_DOMEIN,
   databaseURL:       ENV.FIREBASE_DB_URL,
@@ -20,15 +20,15 @@ const config = {
   appId:             ENV.FIREBASE_APP_ID,
 };
 
-firebase.initializeApp(config);
+firebase.default.initializeApp(firebaseConfig);
 
 const AppNavigator = createStackNavigator({
+
   Login:      { screen: LoginScreen },
+  SignUp:     { screen: SignUpScreen },
   Home:       { screen: MemoListScreen },
   MemoDetail: { screen: MemoDetailScreen },
   MemoEdit:   { screen: MemoEditScreen },
-  SignUp:     { screen: SignUpScreen },
-
 }, {
   defaultNavigationOptions: {
     headerTitle: 'Memot',
